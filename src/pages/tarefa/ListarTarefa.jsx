@@ -74,11 +74,15 @@ const ListarTarefa = () => {
   };
 
   const handleDeletar = (id) => {
-    setTarefas(current =>
-      current.filter(tarefa => {
-        return tarefa.idTarefa !== id;
-      }),
-    );
+    //Confirmação do usuário para deletar a tarefa
+    if(window.confirm('Deseja realmente deletar a tarefa?')){
+      setTarefas(current =>
+        current.filter(tarefa => {
+          return tarefa.idTarefa !== id;
+        }),
+      );
+    }
+
   };
 
     return(
